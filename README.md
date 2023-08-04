@@ -179,6 +179,8 @@ const logger2 = structuredLog.configure()
 |Name|Description|
 |---|---|
 |[ConsoleSink](#console-sink)|Outputs events through the `console` object in Node or the browser.|
+|[BetterStackSink](#betterstack-sink)|Send event to BetterStack.|
+
 
 #### 3rd party sinks
 |Name|Description|
@@ -277,6 +279,26 @@ It supports the following properties:
 |`includeProperties`|If `true`, the properties of the log event will be written to the console in addition to the message.|`false`|
 |`includeTimestamps`|If `true`, timestamps will be included in the message that is written to the console.|`false`|
 |`restrictedToMinimumLevel`|If set, only events of the specified level or higher will be output to the console.||
+
+### BetterStack Sink
+
+The `BetterStackSink`, which outputs event to BetterStack, is provided by default.
+The following line creates a new instance that can be passed to the logger configuration:
+
+```js
+var betterStackSink = new BetterStackSink({ /* options */ });
+```
+
+The `options` object is optional, but can be used to modify the functionality of the sink.
+It supports the following properties:
+
+|Key|Description|Mandatory|
+|---|---|---|
+|`token`|The better stack token of the source to write to| Yes |
+|`suppressErrors`|If `true`, the logger will not fallback to console logging if BetterStack ingestion endpoint is unavailable | - |
+|`durable`|If `true`, persist the log into local storage and process them after app reloas | - |
+|`ingestionUri`| Alternate ingestion endpoint uri, if you want to send logs to a forwarder par example | - |
+
 
 ### Batched Sink
 
