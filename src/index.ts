@@ -3,6 +3,7 @@ import './polyfills/objectAssign';
 export { LogEventLevel } from './logEvent';
 export { Logger } from './logger';
 export { ConsoleSink } from './consoleSink';
+export { BetterStackSink } from './betterStackSink';
 export { BatchedSink } from './batchedSink';
 export { DynamicLevelSwitch } from './dynamicLevelSwitch';
 
